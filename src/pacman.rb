@@ -1,31 +1,36 @@
 require_relative 'character'
 
-class Pacman < Ghost
-  attr_reader :avatar, :pos_x, :pos_y, :score
+class Pacman < Character
+  attr_accessor :avatar
 
-  def initialize
-    default_position
+  def initialize(pos_x, pos_y)
+    super(pos_x, pos_y)
     @avatar = 'V'
-    @score = 0
+    @@score = 0
   end
 
-  def update_score
-    @score += 1
-  end
-
-  def direction(value)
-    if ['e', '!d'].include?(value)
-      move_up(value)
-      @avatar = 'v'
-    elsif ['d', '!e'].include?(value)
-      move_down(value)
+  def change_direction(move, map)
+    case move
+    when '8'
+      move_up(move, map)
+      @avatar = 'V'
+    when '2'
+      move_down(move, map)
       @avatar = '^'
-    elsif ['s', '!f'].include?(value)
-      move_left(value)
+    when '4'
+      move_left(move, map)
       @avatar = '>'
-    elsif ['f', '!s'].include?(value)
-      move_right(value)
+    when '6'
+      move_right(move, map)
       @avatar = '<'
     end
+  end
+
+  def self.score
+    @@score
+  end
+
+  def self.score=(new_score)
+    @@score = new_score
   end
 end

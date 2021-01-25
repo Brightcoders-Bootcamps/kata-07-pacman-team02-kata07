@@ -25,12 +25,3 @@ class Map
     end
   end
 end
-
-map = Map.new(20, 15)
-map.create_walls
-map.board.each do |y|
-  y.each do |x|
-    print"#{x} "
-  end
-  puts ""
-end
