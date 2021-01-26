@@ -1,5 +1,6 @@
 require_relative 'pacman'
 require_relative 'ghost'
+require_relative 'position'
 
 $map = Array.new
 $row_count = 0

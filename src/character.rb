@@ -1,5 +1,4 @@
 require_relative 'map'
-require_relative 'position'
 require_relative 'pacman'
 
 class Character
