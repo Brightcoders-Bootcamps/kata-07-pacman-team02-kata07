@@ -5,7 +5,7 @@ class Pacman < Character
 
   def initialize(pos_x, pos_y)
     super(pos_x, pos_y)
-    @avatar = 'V'
+    @avatar = '<'
     @@score = 0
   end
 
